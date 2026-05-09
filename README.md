@@ -5,4 +5,4 @@ Code for Liftoff 2026 project
 * Something smart
 * More smart things
 
-https://prod.liveshare.vsengsaas.visualstudio.com/join?6FC197703E92740B115E431D9AD42B03E515
+ https://prod.liveshare.vsengsaas.visualstudio.com/join?6078A100BDBC542FE2D315F7EE0CE1A96EF7
