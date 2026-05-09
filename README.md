@@ -5,4 +5,4 @@ Code for Liftoff 2026 project
 * Movie
 * Game (Star Wars Chess ish)
 
-Coperople](https://prod.liveshare.vsengsaas.visualstudio.com/join?6078A100BDBC542FE2D315F7EE0CE1A96EF7)
+[JOIN ME](https://prod.liveshare.vsengsaas.visualstudio.com/join?6078A100BDBC542FE2D315F7EE0CE1A96EF7)
