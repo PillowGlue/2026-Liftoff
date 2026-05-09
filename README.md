@@ -1,6 +1,6 @@
 # 2026-Liftoff
 Code for Liftoff 2026 project
 
-## Ideas
-* Something smart
-* More smart things
+## Ideas for Entertainment
+* Movie
+* Game (Star Wars Chess ish)
