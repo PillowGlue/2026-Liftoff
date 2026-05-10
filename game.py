@@ -5,6 +5,7 @@
 import pygame
 import random
 import os
+import time
 
 def clear_screen():
     os.system('cls' if os.name == 'nt' else 'clear')
@@ -54,7 +55,7 @@ def boardFill(matrix):
             matrix[x][y] = f"\033[38;5;14m■\033[0m"
             matrix[x][7+y] = f"\033[38;5;196m■\033[0m"
 
-def movePiece(turn, matrix, bluePlayers, redPlayers):
+def movePiece(turn, matrix, bluePlayers, redPlayers, pTurn):
     usrCoord = input("Move from (x,y): ")
     newCoord = input("Move to   (x,y): ")
 
@@ -85,6 +86,10 @@ def movePiece(turn, matrix, bluePlayers, redPlayers):
                             redPlayers -= 1
                     if newY <= 7:
                         if matrix[newX][newY+2] == "\033[38;5;196m■\033[0m":
+                            matrix[newX][newY+1] = "\033[38;5;72mi\033[0m"
+                            drawBoard(matrix, pTurn, bluePlayers, redPlayers)
+                            time.sleep(1.0)
+                            matrix[newX][newY+1] = " "
                             matrix[newX][newY+2] = "\033[38;5;196mX\033[0m"
                             redPlayers -= 1 
 
@@ -101,6 +106,9 @@ def movePiece(turn, matrix, bluePlayers, redPlayers):
                             matrix[newX][newY-1] = "\033[38;5;14mX\033[0m"
                             bluePlayers -= 1
                     if newY >= 2:
+                        matrix[newX][newY-1] = "\033[38;5;72mi\033[0m"
+                        drawBoard(matrix, pTurn, bluePlayers, redPlayers)
+                        time.sleep(1.0)
                         if matrix[newX][newY-2] == "\033[38;5;14m■\033[0m":
                             matrix[newX][newY-2] = "\033[38;5;14mX\033[0m"
                             bluePlayers -= 1
@@ -117,7 +125,6 @@ def main():
     playing = True
     turn = random.randint(1, 2)
     if turn == 1:
-        print("BLUE GOES FIRST")
         for x in range(0,5):
             for y in range(0,5):
                 pTurn[x][y] = f"\033[38;5;14m■\033[0m"
@@ -126,11 +133,10 @@ def main():
         for x in range(0,5):
             for y in range(0,5):
                 pTurn[x][y] = f"\033[38;5;196m■\033[0m"
-        print("RED GOES FIRST")
         
     while playing:
         drawBoard(matrix, pTurn, bluePlayers, redPlayers)
-        matrix, bluePlayers, redPlayers = movePiece(turn, matrix, bluePlayers, redPlayers)
+        matrix, bluePlayers, redPlayers = movePiece(turn, matrix, bluePlayers, redPlayers, pTurn)
         clear_screen()
 
         if turn == 1: 
@@ -151,4 +157,5 @@ def main():
             playing = False
             
 if __name__ == "__main__":
+    clear_screen()
     main()
