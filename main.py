@@ -180,7 +180,7 @@ def move_piece(turn, matrix, blue_speed, red_speed):
                 return move_piece(turn, matrix, blue_speed, red_speed)
     # Reds's turn
     if turn == 2:
-         if is_rd(matrix[usr_x][usr_y]):
+         if is_red(matrix[usr_x][usr_y]):
             if red_speed == 2:
                 # Left
                 if usr_x - 2 == new_x and usr_y == new_y:
@@ -310,17 +310,17 @@ def shoot_piece(turn, matrix, blue_player, red_player):
                     red_player -= 1
 
             elif direction == "R":
-                if matrix[usr_x + 1][usr_y+1] == PIECES[1]:
-                    matrix[usr_x + 1][usr_y+1] = PIECES[3]
+                if matrix[usr_x + 1][usr_y-1] == PIECES[1]:
+                    matrix[usr_x + 1][usr_y-1] = PIECES[3]
                     red_player -= 1
-                elif matrix[usr_x + 2][usr_y+2] == PIECES[1]:
-                    matrix[usr_x + 2][usr_y+2] = PIECES[3]
+                elif matrix[usr_x + 2][usr_y-2] == PIECES[1]:
+                    matrix[usr_x + 2][usr_y-2] = PIECES[3]
                     red_player -= 1
 
         # Red's turn
-        # Directions
-        direction = input("Choose a direction. [L]eft, [R]ight, U[p]: ")
+        # Direction
         if turn == 2:
+             direction = input("Choose a direction. [L]eft, [R]ight, U[p]: ")
             if direction == "L":
                 if matrix[usr_x - 1][usr_y-1] == PIECES[0]:
                     matrix[usr_x - 1][usr_y-1] = PIECES[2]
